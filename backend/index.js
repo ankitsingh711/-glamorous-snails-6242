@@ -4,10 +4,16 @@ const {connection} = require("./config/db");
 require("dotenv").config();
 const { UserRouter } = require("./router/user.router");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const {ProductRouter} = require("./router/products.router");
+const {Authenticator} = require("./middleware/userAuth.middleware");
 
 app.use(cors({origin:"*"}));
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.json());
 app.use("/users", UserRouter);
+app.use(Authenticator);
+app.use("/products", ProductRouter);
 
 
 let port = process.env.PORT;
