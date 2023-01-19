@@ -1,248 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://www.linkpicture.com/q/Apni-Dukaan-Logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://www.linkpicture.com/q/Apni-Dukaan-Logo.png"
+    />
     <title>Apni Dukaan</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <script src="https://kit.fontawesome.com/3f69d0abd1.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script
+      src="https://kit.fontawesome.com/3f69d0abd1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <!-- scroll to top  -->
     <div id="scrollTop">
-        <i class="fa-sharp fa-solid fa-arrow-up"></i>
+      <i class="fa-sharp fa-solid fa-arrow-up"></i>
     </div>
     <div class="ad">
-        <div>
-            <span>Brand Waali Quality, Bazaar Waali Deal!</span>
-        </div>
-        <div>
-            <span>Impact@Snapdeal</span>
-            <span>Gift Cards</span>
-            <span>Help Center</span>
-            <span>Sell on Snapdeal</span>
-            <span>Download App</span>
-        </div>
+      <div>
+        <span>Brand Waali Quality, Bazaar Waali Deal!</span>
+      </div>
+      <div>
+        <span>Impact@Snapdeal</span>
+        <span>Gift Cards</span>
+        <span>Help Center</span>
+        <span>Sell on Snapdeal</span>
+        <span>Download App</span>
+      </div>
     </div>
 
     <!-- Navbar Starts here  -->
     <div class="nav">
-        <div class="logo">
-            <img src="https://www.linkpicture.com/q/Apni_Dukaan_Logo-removebg-preview.png" alt="my_logo" width="180px">
-        </div>
-        <div class="searchbar">
-            <input type="text" name="search" id="search" placeholder="Search products & brands">
-            <button>
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Search
-            </button>
-        </div>
+      <div class="logo">
+        <a href="index.html">
+          <img
+            src="https://www.linkpicture.com/q/Apni_Dukaan_Logo-removebg-preview.png"
+            alt="my_logo"
+            width="180px"
+          />
+        </a>
+      </div>
+      <div class="searchbar">
+        <input
+          type="text"
+          name="search"
+          placeholder="Search products & brands"
+        />
+        <button
+        id="search2"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
+        </button>
+      </div>
+      <div>
         <div>
-            <div>
-                <span>Cart</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-            <div>
-                <span>SignIn</span>
-                <i class="fa-solid fa-user"></i>
-            </div>
+          <span>Cart</span>
+          <i class="fa-solid fa-cart-shopping"></i>
         </div>
+        <div id="singupLogoAndtext">
+          <span id="signup">Signup</span>
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </div>
     </div>
 
+    <!-- Login and Signup modals starts here  -->
+    <div class="modals">
+        <button
+        id="closemodal"
+        style="margin-left:660px; position:absolute; z-index:200; background-color:#ff4266; border:none;font-size:18px">&cross;</button>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form id="signupform" action="signup" method="post">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input id="name" name="name" type="text" placeholder="Name" required/>
+            <input id="email" name="email" type="email" placeholder="Email" required/>
+            <input id="password" name="password" type="password" placeholder="Password" required/>
+            <button>Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="login" method="post" id="loginform">
+            <h1>Log in</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" id="email" name="email" required/>
+            <input type="password" placeholder="Password" id="password" name="password" required/>
+            <a href="#">Forgot your password?</a>
+            <button>Log In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Singup and login modals end here  -->
+
+
     <div class="topPart">
-        <div class="categories">
-            <span>TOP CATEGORIES</span>
-            <ul>
-                <li>
-                    <img src="https://t4.ftcdn.net/jpg/02/48/41/93/360_F_248419312_JiP5h9OBTgZsTRnHZwntiiShjHveffPp.jpg" alt="" width="50px">
-                    Men's Fashion
-                </li>
-                <li>
-                    <img src="https://i.pinimg.com/originals/ea/aa/5f/eaaa5f39862b3a573f83b863c11a6f95.jpg" alt="" width="50px">
-                    Women's Fashion
-                </li>
-                <li>
-                    <img src="https://thumbs.dreamstime.com/b/cloud-kitchen-logo-digital-technology-fork-monoline-line-icon-design-235906175.jpg" alt="" width="50px">
-                    Home & Kitchen
-                </li>
-                <li>
-                    <img src="https://images-platform.99static.com//2tjpS0uXMR9LCCQDU9ibgUTCfck=/470x214:1531x1275/fit-in/500x500/99designs-contests-attachments/69/69609/attachment_69609452" alt="" width="50px">
-                    Toys, Kids Fashion
-                </li>
-                <li>
-                    <img src="https://i.pinimg.com/originals/ea/aa/5f/eaaa5f39862b3a573f83b863c11a6f95.jpg" alt="" width="50px">
-                    Beauty, Healthy
-                </li>
-            </ul>
-        </div>
-        <div class="topPart_right">
+      <div class="categories">
+        <h5>TOP CATEGORIES</h5>
+        <ul>
+          <a href="men.html">
+            <li>
+              Men's Fashion
+            </li>
+          </a><br>
+          <a href="women.html">
+            <li>
+              Women's Fashion
+            </li>
+          </a><br>
+          <a href="kitchen.html">
+            <li>
+              Home & Kitchen
+            </li>
+          </a><br>
+          <a href="kids.html">
+            <li>
+              Toys, Kids Fashion
+            </li>
+          </a><br>
+          <a href="beauty.html">
+            <li>
+              Beauty, Healthy
+            </li>
+          </a>
+        </ul>
+        <h5>MORE CATEGORIES</h5>
+        <ul>
+            <a href="">
+              <li>Automotive</li><br>
+            </a>
+            <a href="">
+              <li>Mobile Accessories</li><br>
+            </a>
+            <a href="">
+              <li>Electronics</li><br>
+            </a>
+            <a href="">
+              <li>Sports, Fitness & Outdoor</li><br>
+            </a>
+            <a href="">
+              <li>Computer & Gaming</li><br>
+            </a>
+            <a href="">
+              <li>Books, Media and Music</li><br>
+            </a>
+            <a href="">
+              <li>Hobbies</li>
+            </a>
+        </ul>
+        <h5>TRENDING SEARCHES</h5>
+        <ul>
+            <a href="">
+              <li>Kitchen Product</li><br>
+            </a>
+            <a href="">
+              <li>Shoes for Men</li><br>
+            </a>
+            <a href="">
+              <li>kurti Set</li><br>
+            </a>
+            <a href="">
+              <li>Sandal Men</li><br>
+            </a>
+            <a href="">
+              <li>Sports Shoes Men</li><br>
+            </a>
+            <a href="">
+              <li>Bangles for women</li><br>
+            </a>
+            <a href="">
+              <li>Books</li>
+            </a>
+        </ul>
+      </div>
+      <div class="topPart_right">
+        <div>
+          <div class="slider">
+            <img src="" alt="imge" />
             <div>
-                <div class="slider">
-                    <img src="" alt="imge">
-                    <div>
-                        <span>BOB</span>
-                        <span>Health</span>
-                        <span>Westernwear</span>
-                        <span>Kurta Sets</span>
-                        <span>Kitchen</span>
-                    </div>
-                </div>
-                <div class="location">
-                    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202002/Maps_Pin_FullColor-x1000.png?p5mE6zsNfbzHgIfhAD8xdamQCvveDfkN" alt="map_logo" width="100px"><br>
-                    <span>Enter your pincode to check availability and faster delievery options</span><br><br>
-                    <input type="number" placeholder="Enter pincode"><br><br>
-                    <input type="submit" value="SUBMIT">
-                    <input type="submit" value="NEXT" id="next">
-                </div>
+              <span>BOB</span>
+              <span>Health</span>
+              <span>Westernwear</span>
+              <span>Kurta Sets</span>
+              <span>Kitchen</span>
             </div>
-            <div class="trending">
-                <h3>TRENDING PRODUCTS</h3>
-            </div>
+          </div>
+          <div class="location">
+            <img
+              src="https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202002/Maps_Pin_FullColor-x1000.png?p5mE6zsNfbzHgIfhAD8xdamQCvveDfkN"
+              alt="map_logo"
+              width="100px"
+            /><br />
+            <span
+              >Enter your pincode to check availability and faster delievery
+              options</span
+            ><br /><br />
+            <input type="number" placeholder="Enter pincode" /><br /><br />
+            <input type="submit" value="SUBMIT" />
+            <input type="submit" value="NEXT" id="next" />
+          </div>
         </div>
+        <h3 style="margin-left: 40px;color:#ff4266">TRENDING PRODUCTS</h3>
+        <div class="trending">
+          <div>
+            <img src="https://n1.sdlcdn.com/imgs/i/n/r/large/bhawna-collection-Loard-Shiv-Trishul-SDL890408077-1-86933.jpeg" alt="mala">
+            <h3>Bhawna Collection Loard</h3>
+            <span>Rating: 4/5</span>
+            <span>
+              <strike>Rs.499</strike>
+            </span>
+            <span>Rs.199</span><br>
+            <span>68% OFF</span><br>
+            <button>Add to Cart</button>
+          </div>
+          <div>
+            <img src="https://n4.sdlcdn.com/imgs/k/e/u/large/Veirdo-100-Cotton-Regular-Fit-SDL302182620-1-f0fac.jpg" alt="mala">
+            <h3>Men T-Shirt Green</h3>
+            <span>Rating: 4/5</span>
+            <span>
+              <strike>Rs.399</strike>
+            </span>
+            <span>Rs.299</span><br>
+            <span>18% OFF</span><br>
+            <button>Add to Cart</button>
+          </div>
+          <div>
+            <img src="https://n2.sdlcdn.com/imgs/h/9/p/large/ASIAN-Brown-Daily-Slippers-SDL287171338-4-f3709.jpg" alt="mala">
+            <h3>Stylish Sandle for Men</h3>
+            <span>Rating: 3/5</span>
+            <span>
+              <strike>Rs.699</strike>
+            </span>
+            <span>Rs.499</span><br>
+            <span>38% OFF</span><br>
+            <button>Add to Cart</button>
+          </div>
+          <div>
+            <img src="https://n2.sdlcdn.com/imgs/i/z/i/large/HMTe-HM-9072-Metal-Analog-SDL494827480-1-db8fc.jpg" alt="watch">
+            <h3>Men brac watch</h3>
+            <span>Rating: 4/5</span>
+            <span>
+              <strike>Rs.1200</strike>
+            </span>
+            <span>Rs.799</span><br>
+            <span>38% OFF</span><br>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="phoneDiv">
-        <div>
-            <img src="https://www.linkpicture.com/q/phone-ss.png" alt="phoneCover">
-        </div>
-        <div>
-            <h1>
-                Download Snapdeal <br>
-                App Now
-            </h1>
-            <span>Fast, Simple & Delightful</span><br>
-            <span>All it takes is 30 seconds to Download.</span><br><br>
-            <img src="https://logos-download.com/wp-content/uploads/2016/06/Download_on_the_App_Store_logo.png" alt="" width="150px">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Google_Play_Store_badge_FR.svg/2560px-Google_Play_Store_badge_FR.svg.png" alt="" width="150px">
-        </div>
+      <div>
+        <img
+          src="https://www.linkpicture.com/q/phone-ss.png"
+          alt="phoneCover"
+        />
+      </div>
+      <div>
+        <h1>
+          Download Snapdeal <br />
+          App Now
+        </h1>
+        <span>Fast, Simple & Delightful</span><br />
+        <span>All it takes is 30 seconds to Download.</span><br /><br />
+        <img
+          src="https://logos-download.com/wp-content/uploads/2016/06/Download_on_the_App_Store_logo.png"
+          alt=""
+          width="150px"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Google_Play_Store_badge_FR.svg/2560px-Google_Play_Store_badge_FR.svg.png"
+          alt=""
+          width="150px"
+        />
+      </div>
     </div>
 
     <div class="footer">
+      <div>
         <div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLp2m-OV330M-6AaPRs-CwnBbE9RBSLwofTyZFwxDbJbQvnRn0QO_z-cy0Sew142WvqZk&usqp=CAU" alt="lock" width="120px">
-                <h4>100% SECURE PAYMENTS</h4>
-                <p>
-                    Moving your card details to a much more <br>
-                    secured place
-                </p>
-            </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKKAi7krhrKFeL-nI-aHzUnpBYcNsh1utIqA&usqp=CAU" alt="lock" width="100px">
-                <h4>TRUSTPAY</h4>
-                <p>
-                    100% Payment Protection. Easy <br>
-                    Return Policy
-                </p>
-            </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6qsg2fn30qRi0TtA_nOlLavB1l0rr96FNe0OPo_5qdqYsvrUf0srwl17_D6PeGBQvzHI&usqp=CAU" alt="lock" width="100px">
-                <h4>HELP CENTER</h4>
-                <p>
-                    Got a Question? Lookno further. <br>
-                    Browse our FAQs or submit your query here.
-                </p>
-            </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpTpdDMDuR9g-BzpGixXei9kp8n_oRFXYBiMSw1W6JVROlNiWwULlwNUc5neNeIRT_7g&usqp=CAU" alt="lock" width="100px">
-                <h4>SHOP ON THE GO</h4>
-                <p>
-                    Download the app and get exciting <br>
-                    app only offers at your fingertips.
-                </p>
-            </div>
-        </div>
-        <div class="details">
-            <div>
-                <h4>POLICY INFO</h4>
-                <ul>
-                    <li>Privacy Policy</li>
-                    <li>Terms of Sale</li>
-                    <li>Terms of Use</li>
-                    <li>Report Abuse and Takedown Policy</li>
-                    <li>FAQ</li>
-                </ul>
-            </div>
-            <div>
-                <h4>COMPANY</h4>
-                <ul>
-                    <li>Impact @Snapdeal</li>
-                    <li>Careers</li>
-                    <li>Blog</li>
-                    <li>Sitemap</li>
-                    <li>Contact Us</li>
-                </ul>
-            </div>
-            <div>
-                <h4>SNAPDEAl BUSINESS</h4>
-                <ul>
-                    <li>Shopping App</li>
-                    <li>Sell on Snapdeal</li>
-                    <li>Media Enqueries</li>
-                </ul>
-            </div>
-            <div>
-                <h4>POPULAR LINKS</h4>
-                <ul>
-                    <li>Lehanga</li>
-                    <li>Kid's Clothing</li>
-                    <li>Sarees</li>
-                    <li>Winter Wear</li>
-                </ul>
-            </div>
-            <div>
-                <h4>SUBSCRIBE</h4>
-                <input type="text">
-                <input type="submit" value="SUBSCRIBE">
-                <p>
-                    Register now to get updates on promotions and <br>
-                    coupons. Or Download App
-                </p>
-            </div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLp2m-OV330M-6AaPRs-CwnBbE9RBSLwofTyZFwxDbJbQvnRn0QO_z-cy0Sew142WvqZk&usqp=CAU"
+            alt="lock"
+            width="120px"
+          />
+          <h4>100% SECURE PAYMENTS</h4>
+          <p>
+            Moving your card details to a much more <br />
+            secured place
+          </p>
         </div>
         <div>
-            <div>
-                <span>PAYMENT</span><br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU" alt="debit_card" width="80px">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU" alt="debit_card" width="80px">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU" alt="debit_card" width="80px">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU" alt="debit_card" width="80px">
-            </div>
-            <div>
-                <span>CONNECT</span><br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKKisxQ9RbGU1SFXKs60Qvr9RBR2DupHu1ww&usqp=CAU" alt="whatsapp">
-            </div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKKAi7krhrKFeL-nI-aHzUnpBYcNsh1utIqA&usqp=CAU"
+            alt="lock"
+            width="100px"
+          />
+          <h4>TRUSTPAY</h4>
+          <p>
+            100% Payment Protection. Easy <br />
+            Return Policy
+          </p>
         </div>
+        <div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6qsg2fn30qRi0TtA_nOlLavB1l0rr96FNe0OPo_5qdqYsvrUf0srwl17_D6PeGBQvzHI&usqp=CAU"
+            alt="lock"
+            width="100px"
+          />
+          <h4>HELP CENTER</h4>
+          <p>
+            Got a Question? Lookno further. <br />
+            Browse our FAQs or submit your query here.
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIpTpdDMDuR9g-BzpGixXei9kp8n_oRFXYBiMSw1W6JVROlNiWwULlwNUc5neNeIRT_7g&usqp=CAU"
+            alt="lock"
+            width="100px"
+          />
+          <h4>SHOP ON THE GO</h4>
+          <p>
+            Download the app and get exciting <br />
+            app only offers at your fingertips.
+          </p>
+        </div>
+      </div>
+      <div class="details">
+        <div>
+          <h4>POLICY INFO</h4>
+          <ul>
+            <li>Privacy Policy</li>
+            <li>Terms of Sale</li>
+            <li>Terms of Use</li>
+            <li>Report Abuse and Takedown Policy</li>
+            <li>FAQ</li>
+          </ul>
+        </div>
+        <div>
+          <h4>COMPANY</h4>
+          <ul>
+            <li>Impact @Snapdeal</li>
+            <li>Careers</li>
+            <li>Blog</li>
+            <li>Sitemap</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div>
+          <h4>SNAPDEAl BUSINESS</h4>
+          <ul>
+            <li>Shopping App</li>
+            <li>Sell on Snapdeal</li>
+            <li>Media Enqueries</li>
+          </ul>
+        </div>
+        <div>
+          <h4>POPULAR LINKS</h4>
+          <ul>
+            <li>Lehanga</li>
+            <li>Kid's Clothing</li>
+            <li>Sarees</li>
+            <li>Winter Wear</li>
+          </ul>
+        </div>
+        <div style="margin-left: 100px;">
+          <h4>SUBSCRIBE</h4>
+          <input type="text" />
+          <input type="submit" value="SUBSCRIBE" />
+          <p>
+            Register now to get updates on promotions and <br />
+            coupons. Or Download App
+          </p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <span>PAYMENT</span><br />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU"
+            alt="debit_card"
+            width="80px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU"
+            alt="debit_card"
+            width="80px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU"
+            alt="debit_card"
+            width="80px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ0GkdOoPleWJhio8fYWdC2PlcYh0pHrgPzGwRTU7YjheJeGxPKpIEV4ehscwX7RcvD08&usqp=CAU"
+            alt="debit_card"
+            width="80px"
+          />
+        </div>
+        <div>
+          <span>CONNECT</span><br />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKKisxQ9RbGU1SFXKs60Qvr9RBR2DupHu1ww&usqp=CAU"
+            alt="whatsapp"
+            width="35px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOOyYjQNryD7kJU21qGgwVn4cEppGPzol0w&usqp=CAU"
+            alt="whatsapp"
+            width="40px"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+            alt="whatsapp"
+            width="35px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxeHFL-y5V7zw4_s90au_AfLE2svz4kFw-SvEBgsjJIm-rO_2yFRw3AXYtkV_u2NZkcQY&usqp=CAU"
+            alt="twitter"
+            width="35px"
+          />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxa32-4DcwjkocFcZAOm3kIK-bXFhAZZPLzCLa5q1Jq5kmRTa0vTMFi8-POKQWARVsNo&usqp=CAU"
+            alt="skype"
+            width="35px"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="description">
-        <p><b>Men:</b>/ Shirts for Men / Casual Shirts for Men / Formal Shirts for Men / Hoodies for Men / Cotton Shirts for Men / T Shirts for Men / Polo T shirts / Kurta Pajama for Men / White Shirt / Black Shirt / Lower for Men / Trousers for Men / Jacket for Men / Formal Pants for Men / Tracksuit for Men / Jeans for Men / Kurta Payjama Sets / Kurta for Men / Blazer for Men / Sweater for Men</p>
-        
-        <p><b>Women:</b> Tops for Women / Kurti / Cotton Sarees / Georgette Sarees / Chiffon Sarees / Net Sarees / Dresses for Women / Jumpsuit for Women / Jeans for Women / Salwar Suit / Bra / Jacket for Women / Night Dress for Women / Sweatshirt for Women / Shorts for Women / Readymade Blouse / Dupatta / T Shirt for Women / Shirts for Women / Skirts for Women / Ethnic wear for Women / Western Dresses for Women / Leggings for Women</p>
+      <p>
+        <b>Men:</b>/ Shirts for Men / Casual Shirts for Men / Formal Shirts for
+        Men / Hoodies for Men / Cotton Shirts for Men / T Shirts for Men / Polo
+        T shirts / Kurta Pajama for Men / White Shirt / Black Shirt / Lower for
+        Men / Trousers for Men / Jacket for Men / Formal Pants for Men /
+        Tracksuit for Men / Jeans for Men / Kurta Payjama Sets / Kurta for Men /
+        Blazer for Men / Sweater for Men
+      </p>
 
-        <p><b>Footwear:</b> Men's Footwear / Casual Shoes for Men / Formal Shoes for Men / Loafers for Men / Slippers for Men / Boots for Men / Sandals for Men / Footwear for Women / Heels for Women / Sandals for Women / Shoes for Women / Sandals for Women / Slippers for Women / Boots for Women / Jutti for Women / Sports Shoes for Women</p>
+      <p>
+        <b>Women:</b> Tops for Women / Kurti / Cotton Sarees / Georgette Sarees
+        / Chiffon Sarees / Net Sarees / Dresses for Women / Jumpsuit for Women /
+        Jeans for Women / Salwar Suit / Bra / Jacket for Women / Night Dress for
+        Women / Sweatshirt for Women / Shorts for Women / Readymade Blouse /
+        Dupatta / T Shirt for Women / Shirts for Women / Skirts for Women /
+        Ethnic wear for Women / Western Dresses for Women / Leggings for Women
+      </p>
 
-        <p><b>Home & Kitchen:</b> Wall Painting / Wall Stickers / Dream Catcher / Rangoli Designs / Clock / Wall Clock / Alarm Clock / Diya / Bean Bag / Laptop Table / Study Table / Wall Hanging / Ceiling Lights / Table Lamp / Hanging Lights / LED Bulbs / Torch Light / LED Lights / Flower Vase / Keychain / Rudraksha / Screwdriver</p>
+      <p>
+        <b>Footwear:</b> Men's Footwear / Casual Shoes for Men / Formal Shoes
+        for Men / Loafers for Men / Slippers for Men / Boots for Men / Sandals
+        for Men / Footwear for Women / Heels for Women / Sandals for Women /
+        Shoes for Women / Sandals for Women / Slippers for Women / Boots for
+        Women / Jutti for Women / Sports Shoes for Women
+      </p>
 
-        <p><b>Home Furnishing:</b> Bed Sheet / Mosquito Net / Mattress / Curtains / Sofa Cover / Blanket / Pillow / Carpet / Apron / Quilt / Floor Mat / Towel / Pillow Cover
-            Electronics: Bluetooth Speakers / Headphones / Earphone / Ceiling Fan / Geysers / Trimmer / Hair Straightner / Hair Dryer / Water Purifier / Mixer Grinder / Gas Stove / Electric Kettle / Computer Mouse / Computer Keyboard / USB & HDMI Cables / Computer Antivirus</p>
+      <p>
+        <b>Home & Kitchen:</b> Wall Painting / Wall Stickers / Dream Catcher /
+        Rangoli Designs / Clock / Wall Clock / Alarm Clock / Diya / Bean Bag /
+        Laptop Table / Study Table / Wall Hanging / Ceiling Lights / Table Lamp
+        / Hanging Lights / LED Bulbs / Torch Light / LED Lights / Flower Vase /
+        Keychain / Rudraksha / Screwdriver
+      </p>
 
-        <p>Snapdeal is India's leading pure-play value Ecommerce platform. Founded in 2010 by Kunal Bahl and Rohit Bansal, Snapdeal is one of the top four online lifestyle shopping destinations of India. Snapdeal brings together a wide assortment of good quality and value- priced merchandise on its platform. Snapdeal's vision is to enable the shoppers of Bharat to experience the joy of living their aspirations through reliable, value-for-money shopping. With a personalized, multilingual interface and cutting edge technology, Snapdeal has simplified the shopping experience for its value-conscious buyers by showcasing the most relevant products- products that are a good functional fit with their needs and of a quality that lasts- thereby delivering true value to its customers. With its commitment to high service standards, Snapdeal suppliers operate under a well structured ecosystem that enables them to offer great quality products at affordable prices. With majority of the value-seeking, middle-income, price-conscious buyers coming from the non-metros, Snapdeal’s logistics networks powered by third party logistics cover more than 96% of India’s pin codes enabling order deliveries to more than 2500 towns and cities and expanding. Further, Snapdeal's mission is to become India’s value lifestyle omni-channel leader. We are excited about continuing to build a complete ecosystem around value commerce, where we can serve Bharat consumers wherever they are on their offline to online shopping journey. Snapdeal is part of the AceVector Group and one of India’s best-known e-commerce companies with an exclusive focus on the value segment.</p>
+      <p>
+        <b>Home Furnishing:</b> Bed Sheet / Mosquito Net / Mattress / Curtains /
+        Sofa Cover / Blanket / Pillow / Carpet / Apron / Quilt / Floor Mat /
+        Towel / Pillow Cover Electronics: Bluetooth Speakers / Headphones /
+        Earphone / Ceiling Fan / Geysers / Trimmer / Hair Straightner / Hair
+        Dryer / Water Purifier / Mixer Grinder / Gas Stove / Electric Kettle /
+        Computer Mouse / Computer Keyboard / USB & HDMI Cables / Computer
+        Antivirus
+      </p>
+
+      <p>
+        Snapdeal is India's leading pure-play value Ecommerce platform. Founded
+        in 2010 by Kunal Bahl and Rohit Bansal, Snapdeal is one of the top four
+        online lifestyle shopping destinations of India. Snapdeal brings
+        together a wide assortment of good quality and value- priced merchandise
+        on its platform. Snapdeal's vision is to enable the shoppers of Bharat
+        to experience the joy of living their aspirations through reliable,
+        value-for-money shopping. With a personalized, multilingual interface
+        and cutting edge technology, Snapdeal has simplified the shopping
+        experience for its value-conscious buyers by showcasing the most
+        relevant products- products that are a good functional fit with their
+        needs and of a quality that lasts- thereby delivering true value to its
+        customers. With its commitment to high service standards, Snapdeal
+        suppliers operate under a well structured ecosystem that enables them to
+        offer great quality products at affordable prices. With majority of the
+        value-seeking, middle-income, price-conscious buyers coming from the
+        non-metros, Snapdeal’s logistics networks powered by third party
+        logistics cover more than 96% of India’s pin codes enabling order
+        deliveries to more than 2500 towns and cities and expanding. Further,
+        Snapdeal's mission is to become India’s value lifestyle omni-channel
+        leader. We are excited about continuing to build a complete ecosystem
+        around value commerce, where we can serve Bharat consumers wherever they
+        are on their offline to online shopping journey. Snapdeal is part of the
+        AceVector Group and one of India’s best-known e-commerce companies with
+        an exclusive focus on the value segment.
+      </p>
     </div>
 
     <div class="copyright">
-        <div>
-            <span>
-                &copy; Copyright 2022 Apni Dukaan
-            </span>
-        </div>
-        <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO9oeDZBaJQiXMHX2iK5g34ExoxHcl7-__K6wH_nFJevUmAOy4W73Sz2Zzd-d-TMIJFV4&usqp=CAU" alt="heart" width="20px">
-            Made for Bharat
-        </div>
+      <div>
+        <span> &copy; Copyright 2022 Apni Dukaan </span>
+      </div>
+      <div>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO9oeDZBaJQiXMHX2iK5g34ExoxHcl7-__K6wH_nFJevUmAOy4W73Sz2Zzd-d-TMIJFV4&usqp=CAU"
+          alt="heart"
+          width="20px"
+        />
+        Made for Bharat
+      </div>
     </div>
-</body>
-<script src="./src/index.js"></script>
+  </body>
+  <script src="./src/index.js"></script>
 </html>

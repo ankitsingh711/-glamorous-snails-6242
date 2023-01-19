@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const userAuth = (req, res, next) => {
+const Authenticator = (req, res, next) => {
+  let token = req.headers.authorization;
   try {
-    jwt.verify(token, process.env.Key, (err, right) => {
+    jwt.verify(token, process.env.Key, (err, decoded) => {
       if (err) {
         console.log(err);
         res.send("Unauthorized User");
@@ -18,3 +19,5 @@ const userAuth = (req, res, next) => {
     res.send("Error in token");
   }
 };
+
+module.exports = { Authenticator };

@@ -8,13 +8,13 @@ const jwt = require("jsonwebtoken");
 
 
 UserRouter.post("/signup", async (req, res) => {
-  const {phone, email, dob, password} = req.body;
+  const {name, email, password} = req.body;
   try {
     bcrypt.hash(password, 6, async (err, secured) => {
       if (err) {
         console.log(err);
       } else {
-        const user = new UserModel({ phone, email, dob, password: secured });
+        const user = new UserModel({ name, email, password: secured });
         await user.save();
         res.send("User Registered Successfully");
       }
@@ -31,12 +31,12 @@ UserRouter.post("/login", async (req, res) => {
   try {
     if (user) {
       bcrypt.compare(password, user.password, (err, pass) => {
-        if (password==pass) {
+        if (pass) {
           jwt.sign({ email }, process.env.Key, (err, token) => {
             if (err) {
               console.log(err);
             } else {
-              res.send("LogIn Success","token",token);
+              res.send({"Message:":"Login Success", "token":token});
             }
           });
         } else {
