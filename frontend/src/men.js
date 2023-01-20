@@ -1,4 +1,6 @@
 const showContainer = document.querySelector(".showproduct");
+const filterPrice = document.querySelector("#filterPrice");
+const signupLogoAndText = document.getElementById("signup");
 
 async function fetchData(){
     let res = await fetch("http://localhost:3300/products/men", {
@@ -11,7 +13,6 @@ async function fetchData(){
     let temp = await res.json();
     showData(temp);
 }
-
 fetchData()
 
 function showData(data){
@@ -29,3 +30,61 @@ function showData(data){
     })
     showContainer.innerHTML = dataArr.join("");
 }
+
+//Filter product in ascending or descnding order acc to the price:
+
+filterPrice.addEventListener("change", ()=>{
+    if(filterPrice.value==="low to high"){
+        ascendingPrice();
+    }else if(filterPrice.value==="high to low"){
+        descendingPrice();
+    }
+})
+
+async function ascendingPrice(){
+    showContainer.innerHTML = null;
+    try {
+        let res = await fetch("http://localhost:3300/products/men?price=asc", {
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json",
+                Authorization: localStorage.getItem("token")
+            }
+        });
+        let data = await res.json();
+        console.log(data);
+        showData(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function descendingPrice(){
+    showContainer.innerHTML = null;
+    try {
+        let res = await fetch("http://localhost:3300/products/men?price=dsc",{
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json",
+                Authorization: localStorage.getItem("token")
+            }
+        });
+        let data = await res.json();
+        console.log(data);
+        showData(data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//Show username if logged in or not:
+function showUsername(){
+    const isLogin = localStorage.getItem("isLogin");
+    if(isLogin){
+      signupLogoAndText.innerText = localStorage.getItem("userLogin");
+    }
+    else{
+      signupLogoAndText.innerText = "SignUp";
+    }
+  }
+  showUsername();

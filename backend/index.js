@@ -12,7 +12,7 @@ app.use(cors({origin:"*"}));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.json());
 app.use("/users", UserRouter);
-app.use(Authenticator);
+// app.use(Authenticator);
 app.use("/products", ProductRouter);
 
 
