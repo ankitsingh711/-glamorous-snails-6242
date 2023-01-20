@@ -21,7 +21,7 @@ const modal = document.querySelector(".modals");
 const closeModal = document.querySelector("#closemodal");
 const signup_form = document.querySelector("#signupform");
 const trend = document.querySelector(".trending");
-const login_form = document.querySelector("#loginform")
+const login_form = document.querySelector("#loginform");
 
 let x = 0;
 function sliderFunc() {
@@ -148,9 +148,11 @@ async function userLogin(data){
         token.then((token)=> {
           if(res.ok){
             modal.style.display = "none";
-            signupLogoAndText.innerText = data.email;
             localStorage.setItem("token", token.token);
+            localStorage.setItem("userLogin", data.email);
+            localStorage.setItem("isLogin", true);
               alert("Login Success");
+              signupLogoAndText.innerText = localStorage.getItem("userLogin");
           }else{
             signupLogoAndText.innerText = "Signup";
               alert("Invalid credentials");
@@ -160,6 +162,103 @@ async function userLogin(data){
         console.log(error);
     }
 }
+
+
+let isLogin = localStorage.getItem("isLogin");
+if(isLogin){
+  modal.innerHTML = `
+    <div class="logout_div">
+      <button
+        id="closemodal"
+        style="margin-left:660px; position:absolute; z-index:200; background-color:#ff4266; border:none;font-size:18px;z-index:199">&cross;
+      </button>
+      <h2>Welcome!</h2>
+      <h3> Hello ${localStorage.getItem("userLogin")}</h3>
+      <button id="logout">LogOut</button>
+    </div>
+  `
+}else{
+  `
+  <div class="modals">
+        <button
+        id="closemodal"
+        style="margin-left:660px; position:absolute; z-index:200; background-color:#ff4266; border:none;font-size:18px">&cross;</button>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form id="signupform" action="signup" method="post">
+            <h1>Create Account</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+            <input id="name" name="name" type="text" placeholder="Name" required/>
+            <input id="email" name="email" type="email" placeholder="Email" required/>
+            <input id="password" name="password" type="password" placeholder="Password" required/>
+            <button>Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="login" method="post" id="loginform">
+            <h1>Log in</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" id="email" name="email" required/>
+            <input type="password" placeholder="Password" id="password" name="password" required/>
+            <a href="#">Forgot your password?</a>
+            <button>Log In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+}
+
+const logouts = document.querySelector("#logout");
+logouts.addEventListener("click", ()=>{
+  console.log("logout")
+  modal.style.display = "none";
+  window.location.reload();
+  localStorage.clear();
+})
+
+//Show username if logged in or not
+function showUsername(){
+  const isLogin = localStorage.getItem("isLogin");
+  if(isLogin){
+    signupLogoAndText.innerText = localStorage.getItem("userLogin");
+  }
+  else{
+    signupLogoAndText.innerText = "SignUp";
+  }
+}
+showUsername();
+
 
 
 

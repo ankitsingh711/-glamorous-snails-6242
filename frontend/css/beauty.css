@@ -1,0 +1,158 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+
+.nav{
+    width: 100%;
+    background-color: #e40046;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.nav>div:nth-child(2){
+    display: flex;
+    margin-top: 10px;
+    width: 35%;
+}
+
+#search2{
+    width: 120px;
+    border-radius: 0px;
+    padding: 0px 0px;
+}
+
+.nav>div:nth-child(3){
+    width: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 14px;
+}
+
+.nav>div:nth-child(3)>div:nth-child(2){
+    cursor: pointer;
+}
+.nav>div:nth-child(3)>div:nth-child(1){
+    cursor: pointer;
+}
+
+.nav button{
+    background-color: #333333;
+    color: white;
+    padding: 9px 10px;
+    border: none;
+}
+
+.nav input{
+    height: 1.7rem;
+    width: 80%;
+    outline: none;
+}
+
+#scrollTop{
+    position: fixed;
+    float: right;
+    background-color: #333333;
+    color: white;
+    font-size: 25px;
+    padding: 10px 17px;
+    margin-top: 550px;
+    text-align: center;
+    margin-right: 10px;
+    z-index: 99;
+    right: 0;
+    border-radius: 50%;
+    display: none;
+}
+#scrollTop:hover{
+    cursor: pointer;
+}
+
+.main{
+    width:95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.main>div:nth-child(1){
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: 30rem;
+}
+
+.main>div:nth-child(1)>ul>li{
+    list-style-type: none;
+    margin-left: -50px;
+}
+
+.showproduct{
+    width: 95%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+    margin-top: 40px;
+}
+
+.showproduct>div{
+    text-align: center;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.showimg{
+    width: 100%;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #e40046;
+	background-color: #e40046;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+#filterPrice{
+    float: right;
+    font-size: 15px;
+    width: 160px;
+}
+
+.description{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    font-size: 14px;
+    color: gray;
+    padding: 20px;
+}
+
+.copyright{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 10px;
+    color: gray;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.copyright span{
+    font-size: 14px;
+    margin-left: 40px;
+    color: gray;
+}
+
+.beautyProduct{
+    cursor: pointer;
+}

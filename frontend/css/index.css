@@ -502,6 +502,17 @@ input {
     display: flex;
 }
 
+.logout_div{
+    width: 600px;
+    margin-left: 100px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    padding: 20px;
+
+}
+
 .trending{
     display: flex;
     justify-content: space-between;
