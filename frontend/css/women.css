@@ -148,3 +148,8 @@ button {
     margin-left: 40px;
     color: gray;
 }
+
+#cart{
+    text-decoration: none;
+    color: white;
+}

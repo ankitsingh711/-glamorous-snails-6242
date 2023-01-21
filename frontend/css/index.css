@@ -502,6 +502,11 @@ input {
     display: flex;
 }
 
+#cart{
+    text-decoration: none;
+    color: white;
+}
+
 .logout_div{
     width: 600px;
     margin-left: 100px;
