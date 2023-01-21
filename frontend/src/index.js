@@ -163,6 +163,13 @@ async function userLogin(data){
     }
 }
 
+const logouts = document.querySelector("#logout");
+logouts.addEventListener("click", ()=>{
+  console.log("logout")
+  modal.style.display = "none";
+  window.location.reload();
+  localStorage.clear();
+})
 
 let isLogin = localStorage.getItem("isLogin");
 if(isLogin){
@@ -238,14 +245,6 @@ if(isLogin){
     </div>
   `
 }
-
-const logouts = document.querySelector("#logout");
-logouts.addEventListener("click", ()=>{
-  console.log("logout")
-  modal.style.display = "none";
-  window.location.reload();
-  localStorage.clear();
-})
 
 //Show username if logged in or not
 function showUsername(){

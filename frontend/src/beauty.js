@@ -1,7 +1,7 @@
 const showContainer = document.querySelector(".showproduct");
 const signupLogoAndText = document.getElementById("signup");
 const filterPrice = document.querySelector("#filterPrice");
-
+var alldata;
 async function fetchData(){
     let res = await fetch("http://localhost:3300/products/beauty", {
         method:"GET",
@@ -11,6 +11,7 @@ async function fetchData(){
         }
     })
     let temp = await res.json();
+    alldata = temp;
     showData(temp);
 }
 fetchData()
@@ -99,7 +100,7 @@ async function addToCart(id){
                     return;
                 }
             }
-            addToCartArr.push(data);
+            addToCartArr.push({...data,quantity:1});
             localStorage.setItem("cart", JSON.stringify(addToCartArr));
             alert("Added to the cart");
         }else{
@@ -111,31 +112,44 @@ async function addToCart(id){
 }
 
 //Filter between the range of price:
-let highprice;
-let lowprice;
-const high = document.getElementsByName("price");
+const high = document.getElementsByName("prices");
 for(value of high){
-    if(value.value==="100-199"){
-        highprice=199;
-        lowprice=100;
-    }else if(value.value==="200-299"){
-        highprice=200;
-        lowprice=299;
-    }else if(value.value==="300-399"){
-        highprice=399;
-        lowprice=300;
-    }else if(value.value==="400-499"){
-        highprice=499;
-        lowprice=400;
-    }
+    let highprice, lowprice;
+    value.addEventListener("click", (e)=>{
+        console.log(value.value)
+        if(value.value==="100-199"){
+            lowprice=100;
+            highprice=199;
+        }else if(value.value==="200-299"){
+            lowprice=200;
+            highprice=299;
+        }else if(value.value==="300-399"){
+            lowprice=300;
+            highprice=399;
+        }else if(value.value==="700-799"){
+            lowprice=700;
+            highprice=799;
+        }
+        rangeFilter(lowprice,highprice);
+    })
 }
-async function rangeFilter(){
+async function rangeFilter(low,high){
     try {
-        let res = await fetch(`http://localhost:products/beauty?low=${lowprice}&high=${highprice}`);
+        let res = await fetch(`http://localhost:products/beauty?low=${low}&high=${high}`);
         let data = res.json();
         showData(data);
     } catch (error) {
         console.log(error);
     }
 }
+
+// filter the data by input field :
+
+let input = document.querySelector("#search");
+input.addEventListener("input", () => {
+  let newdata = alldata.filter((elem) => {
+    return elem.name.toLowerCase().includes(input.value.toLowerCase());
+  });
+  showData(newdata);
+});
 

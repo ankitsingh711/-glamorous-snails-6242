@@ -156,3 +156,8 @@ button {
 .beautyProduct{
     cursor: pointer;
 }
+
+#cart{
+    text-decoration: none;
+    color: white;
+}

@@ -91,6 +91,11 @@ body{
     margin-left: -50px;
 }
 
+#cart{
+    text-decoration: none;
+    color: white;
+}
+
 .showproduct{
     width: 95%;
     margin:auto;

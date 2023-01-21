@@ -82,6 +82,7 @@ ProductRouter.get("/beauty", async (req, res) => {
   const query = req.query.price;
   const low = req.query.low;
   const high = req.query.high;
+  const category = req.query.category;
   try {
     if (query === "asc") {
       const data = await BeautyModel.find().sort({ price: 1 });
@@ -92,7 +93,10 @@ ProductRouter.get("/beauty", async (req, res) => {
     }else if(low && high){
       const data = await BeautyModel.find({price:{$gte:low,$lte:high}});
       res.send(data);
-    } 
+    } else if(category){
+      const data = await BeautyModel.find({category:category});
+      res.send(data);
+    }
     else {
       const data = await BeautyModel.find();
       res.send(data);
